@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>KUMAR YASHANSH | Portfolio with Enhanced Purple Shadows</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap');
+
+  :root {
+    --primary-color: #8a2be2; /* bright purple accent */
+    --primary-color-light: #9e78ff;
+    --secondary-color: #6a5acd; /* purple-blue */
+    --accent-color: #7b68ee; /* lighter purple */
+    --cta-color: #bb86fc; /* pastel purple for buttons */
+    --background-dark: #121212; /* dark almost black */
+    --background-darker: #0e0e0e;
+    --background-light: #1e1e2f;
+    --text-light: #e0e0f0;
+    --text-muted: #bbbbcc;
+    --shadow-color: rgba(138, 43, 226, 0.45);
+    --radius: 12px;
+    --transition-speed: 0.4s;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0; padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-dark);
+    color: var(--text-light);
+    scroll-behavior: smooth;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  a {
+    color: var(--primary-color-light);
+    text-decoration: none;
+  }
+  a:hover, a:focus {
+    color: var(--primary-color);
+    outline: none;
+  }
+
+  header {
+    position: sticky;
+    top: 0; left: 0; right: 0;
+    background: rgba(18,18,18,0.95);
+    box-shadow: 0 2px 10px var(--shadow-color);
+    backdrop-filter: saturate(180%) blur(8px);
+    z-index: 110;
+    padding: 14px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background var(--transition-speed);
+  }
+
+  header h1 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.85rem;
+    letter-spacing: 1.1px;
+    color: var(--primary-color);
+    user-select: none;
+  }
+
+  nav {
+    display: flex;
+    gap: 30px;
+  }
+
+  nav a {
+    position: relative;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-light);
+    padding: 8px 0;
+    cursor: pointer;
+    transition: color var(--transition-speed);
+    white-space: nowrap;
+  }
+
+  nav a::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 4px;
+    transition: width var(--transition-speed);
+  }
+
+  nav a:hover,
+  nav a.active {
+    color: var(--primary-color-light);
+  }
+
+  nav a:hover::after,
+  nav a.active::after {
+    width: 100%;
+  }
+
+  main {
+    max-width: 900px;
+    margin: 96px auto 64px;
+    padding: 0 20px;
+  }
+
+  section {
+    background: var(--background-light);
+    border-radius: var(--radius);
+    /* Enhanced purple glowing shadow */
+    box-shadow: 0 8px 20px var(--shadow-color), 0 0 15px rgba(138,43,226,0.2);
+    padding: 60px 40px 80px;
+    margin-bottom: 48px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out, box-shadow 0.3s ease;
+    color: var(--text-light);
+  }
+
+  section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  section:hover {
+    box-shadow:
+      0 16px 40px var(--shadow-color),
+      0 0 30px rgba(138,43,226,0.4),
+      0 0 20px rgba(138,43,226,0.3);
+  }
+
+  section h2 {
+    margin-top: 0;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 2.8rem;
+    margin-bottom: 32px;
+    letter-spacing: 1px;
+    user-select: none;
+  }
+
+  #home {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: #fff;
+    text-align: center;
+    padding-bottom: 90px;
+    box-shadow:
+      0 20px 56px rgba(138, 43, 226, 0.7),
+      0 0 40px rgba(138, 43, 226, 0.4);
+  }
+
+  #home h1 {
+    font-size: 3.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    user-select: none;
+    text-shadow: 0 0 15px rgba(150, 82, 255, 0.8);
+  }
+
+  #home p {
+    font-size: 1.4rem;
+    font-weight: 300;
+    max-width: 600px;
+    margin: 0 auto 36px;
+    line-height: 1.7;
+    text-shadow: 0 0 8px rgba(140, 70, 250, 0.7);
+  }
+
+  #home .btn, .btn {
+    background-color: var(--cta-color);
+    border: none;
+    padding: 16px 48px;
+    font-weight: 600;
+    font-size: 1.15rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+    color: white;
+    box-shadow:
+      0 10px 30px rgba(187, 134, 252, 0.8),
+      0 0 12px rgba(187, 134, 252, 0.7);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    user-select: none;
+    margin-top: 12px;
+  }
+
+  #home .btn:hover, .btn:hover {
+    background-color: var(--primary-color-light);
+    box-shadow:
+      0 14px 40px rgba(158, 120, 255, 0.8),
+      0 0 22px rgba(158, 120, 255, 0.9);
+  }
+
+  .btn-secondary {
+    background-color: var(--primary-color);
+    box-shadow:
+      0 10px 30px rgba(138, 43, 226, 0.75),
+      0 0 15px rgba(138, 43, 226, 0.65);
+    margin-left: 16px;
+  }
+  .btn-secondary:hover {
+    background-color: var(--secondary-color);
+    box-shadow:
+      0 14px 40px rgba(107, 90, 255, 0.75),
+      0 0 25px rgba(107, 90, 255, 0.7);
+  }
+
+  #introduction, #experience, #internship, #education, #projects, #photos, #contact {
+    background-color: var(--background-darker);
+    color: var(--text-light);
+  }
+
+  #introduction b, #experience li span.role, #internship li span.role,
+  #education .edu-item h3, #projects .project-card h4 {
+    text-shadow: 0 0 6px var(--primary-color-light);
+  }
+
+  /* Experience, Internship, Education */
+  #experience ul, #internship ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+  #experience li, #internship li {
+    margin-bottom: 20px;
+    border-left: 5px solid var(--primary-color);
+    padding-left: 18px;
+  }
+  #experience li span.company, #internship li span.company {
+    font-weight: 600;
+    font-style: italic;
+    color: var(--text-light);
+  }
+  #experience li span.period, #internship li span.period {
+    font-size: 0.95rem;
+    color: #bbb;
+  }
+  #education .edu-item {
+    margin-bottom: 24px;
+  }
+  #education .edu-item span.degree {
+    font-weight: 500;
+    font-style: italic;
+    color: var(--text-light);
+  }
+  #education .edu-item span.period {
+    font-size: 0.9rem;
+    color: #bbb;
+  }
+
+  /* Projects Section */
+  #projects .project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  #projects .project-card {
+    background: #2c2c44;
+    box-shadow:
+      0 8px 28px rgba(138, 43, 226, 0.6),
+      0 0 12px rgba(138, 43, 226, 0.4);
+    padding: 24px;
+    border-radius: var(--radius);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  #projects .project-card:hover {
+    transform: translateY(-10px);
+    box-shadow:
+      0 20px 48px rgba(138, 43, 226, 0.9),
+      0 0 30px rgba(138, 43, 226, 0.7);
+  }
+  #projects .project-card p {
+    font-weight: 300;
+    line-height: 1.5;
+    color: var(--text-light);
+  }
+
+  /* Photo Gallery */
+  #photos .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
+    gap: 18px;
+  }
+  #photos .gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+    box-shadow:
+      0 10px 30px rgba(138, 43, 226, 0.7);
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  #photos .gallery img:hover,
+  #photos .gallery img:focus {
+    transform: scale(1.06);
+    box-shadow:
+      0 22px 50px rgba(138, 43, 226, 1);
+    outline: none;
+  }
+
+  /* Contact Section */
+  #contact p {
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+  }
+  #contact a {
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-decoration: underline;
+    color: var(--primary-color-light);
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+  }
+  #contact a:hover,
+  #contact a:focus {
+    border-color: var(--primary-color);
+    outline: none;
+  }
+
+  /* Footer */
+  footer {
+    color: #666;
+    font-weight: 400;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 64px;
+    margin-bottom: 32px;
+    user-select: none;
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    header {
+      padding: 18px 24px;
+      flex-direction: column;
+      gap: 14px;
+    }
+    nav {
+      gap: 18px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    main {
+      margin: 96px 16px 48px;
+      padding: 0;
+    }
+    section {
+      padding: 48px 20px 64px;
+    }
+    #home h1 {
+      font-size: 2.8rem;
+    }
+    #home p {
+      font-size: 1.15rem;
+    }
+    #introduction h2,
+    #experience h2,
+    #internship h2,
+    #education h2,
+    #projects h2,
+    #photos h2,
+    #contact h2 {
+      font-size: 2rem;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>KUMAR YASHANSH</h1>
+  <nav aria-label="Primary Navigation">
+    <a href="#home" class="nav-link active" tabindex="0">Home</a>
+    <a href="#introduction" class="nav-link" tabindex="0">About Me</a>
+    <a href="#experience" class="nav-link" tabindex="0">Experience</a>
+    <a href="#internship" class="nav-link" tabindex="0">Internship</a>
+    <a href="#education" class="nav-link" tabindex="0">Education</a>
+    <a href="#projects" class="nav-link" tabindex="0">Projects</a>
+    <a href="#photos" class="nav-link" tabindex="0">Photos</a>
+    <a href="#contact" class="nav-link" tabindex="0">Contact</a>
+  </nav>
+</header>
+<main>
+  <section id="home" class="visible" tabindex="0" aria-label="Home section introduction">
+    <h1>Hello, I'm Kumar Yashansh</h1>
+    <p>A passionate developer crafting beautiful and user-friendly web experiences.</p>
+    <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" aria-label="Scroll to contact section">Get In Touch</button>
+    <button class="btn btn-secondary" onclick="alert('Thanks for your interest! Contact me via email.')" aria-label="Secondary button">Learn More</button>
+  </section>
+
+  <section id="introduction" tabindex="0" aria-label="About Me section">
+    <h2>About Me</h2>
+    <b>👋 Hi, I'm Yash</b>
+    <p>I’m a B.Tech Computer Science student at Lovely Professional University, Punjab, passionate about building clean, functional, and creative digital experiences.</p>
+    <p>My skill set includes Python, HTML, CSS, and Java, and I am currently honing my expertise in C programming and front-end development.</p>
+    <p>Some of my projects are real-world web applications like a coffee shop website and an online lehenga shopping site, where I blend design and code for seamless user experiences.</p>
+    <p>When I’m not coding, I enjoy tech content, experimenting with new web designs, or simply recharging with a good nap. I’m committed to continuous learning and innovation.</p>
+    <p>Let’s build something great together!</p>
+  </section>
+
+  <section id="experience" tabindex="0" aria-label="Work experience section">
+    <h2>Experience</h2>
+    <ul>
+      <li>
+        <span class="role">Front-End Developer</span>
+        <span class="company">AwesomeTech Inc.</span>
+        <span class="period">Jan 2024 — Present</span>
+      </li>
+      <li>
+        <span class="role">Web Developer Intern</span>
+        <span class="company">Creative Solutions</span>
+        <span class="period">Jun 2024 — Dec 2024</span>
+      </li>
+    </ul>
+  </section>
+
+  <section id="internship" tabindex="0" aria-label="Internship section">
+    <h2>Internship</h2>
+    <ul>
+      <li>
+        <span class="role">Software Development Intern</span>
+        <span class="company">Tech Innovators Ltd.</span>
+        <span class="period">Jul 2024 — Sep 2024</span>
+      </li>
+      <li>
+        <span class="role">Front-End Web Intern</span>
+        <span class="company">Bright Solutions</span>
+        <span class="period">Jan 2024 — Apr 2024</span>
+      </li>
+    </ul>
+  </section>
+
+  <section id="education" tabindex="0" aria-label="Education section">
+    <h2>Education</h2>
+    <div class="edu-item">
+      <h3>Lovely Professional University</h3>
+      <span class="degree">B.Tech Computer Science</span>
+      <span class="period">2024 - Present</span>
+    </div>
+    <div class="edu-item">
+      <h3>RPS RESIDENTIAL SCHOOL</h3>
+      <span class="degree">10TH AND 12TH </span>
+      <span class="period">2021 - 2024</span>
+    </div>
+  </section>
+
+  <section id="projects" tabindex="0" aria-label="Projects section">
+    <h2>Projects</h2>
+    <div class="project-list">
+      <div class="project-card" tabindex="0" aria-label="Project One: Interactive weather app">
+        <h4>Interactive Weather App</h4>
+        <p>A beautiful weather dashboard featuring live data and dynamic backgrounds.</p>
+      </div>
+      <div class="project-card" tabindex="0" aria-label="Project Two: Portfolio Website">
+        <h4>Portfolio Website</h4>
+        <p>Responsive portfolio site showcasing projects with animations and smooth scrolling.</p>
+      </div>
+      <div class="project-card" tabindex="0" aria-label="Project Three: Chat Application">
+        <h4>Chat Application</h4>
+        <p>Real-time chat app with intuitive UI and local storage message persistence.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="photos" tabindex="0" aria-label="Photos section showcasing photos">
+    <h2>Photos</h2>
+    <div class="gallery" role="list">
+      <img src="https://via.placeholder.com/300x300?text=Photo+1" alt="Photo 1" tabindex="0" role="listitem" />
+      <img src="https://via.placeholder.com/300x300?text=Photo+2" alt="Photo 2" tabindex="0" role="listitem" />
+      <img src="https://via.placeholder.com/300x300?text=Photo+3" alt="Photo 3" tabindex="0" role="listitem" />
+      <img src="https://via.placeholder.com/300x300?text=Photo+4" alt="Photo 4" tabindex="0" role="listitem" />
+      <img src="https://via.placeholder.com/300x300?text=Photo+5" alt="Photo 5" tabindex="0" role="listitem" />
+      <img src="https://via.placeholder.com/300x300?text=Photo+6" alt="Photo 6" tabindex="0" role="listitem" />
+    </div>
+  </section>
+
+  <section id="contact" tabindex="0" aria-label="Contact section">
+    <h2>Contact</h2>
+    <p>If you'd like to get in touch, send me an email:</p>
+    <p><a href="mailto:your.email@example.com" style="color: var(--primary-color-light);">kr.yashansh123@gmail.com</a></p>
+  </section>
+</main>
+
+<footer>
+  &copy; 2024 KUMAR YASHANSH. All rights reserved.
+</footer>
+
+<script>
+  (function() {
+    const navLinks = document.querySelectorAll('nav a.nav-link');
+    const sections = [...navLinks].map(link => document.querySelector(link.getAttribute('href')));
+
+    function activateNavLink() {
+      const scrollPos = window.scrollY + window.innerHeight / 3;
+      let activeIndex = sections.findIndex(section => section.offsetTop >= scrollPos);
+      if (activeIndex === -1) activeIndex = sections.length - 1;
+
+      navLinks.forEach(link => link.classList.remove('active'));
+      if (activeIndex > 0) navLinks[activeIndex -1].classList.add('active');
+      else navLinks[0].classList.add('active');
+    }
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.25 });
+
+    document.querySelectorAll('main section').forEach(section => {
+      observer.observe(section);
+    });
+
+    window.addEventListener('scroll', activateNavLink);
+    window.addEventListener('load', activateNavLink);
+  })();
+</script>
+</body>
+</html>
